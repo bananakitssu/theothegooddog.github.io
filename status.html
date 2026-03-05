@@ -2,51 +2,21 @@
 <html>
 <head>
   <title>Movie Status</title>
-  <style>
-    body{
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #121212;
-      color: #eaeaea;
-      text-align: center;
-      margin: 0;
-      padding: 2rem;
-    }
-
-    h1{
-      font-size: 2.5rem;
-      margin-bottom: .5rem;
-      color: #6ee7ff;
-    }
-
-    h2{
-      font-size: 1.5rem;
-      margin: .5rem 0;
-    }
-
-    h3{
-      font-weight: 400;
-      margin: .25rem 0;
-    }
-
-    h6{
-      margin-top: 2rem;
-      opacity: .6;
-      font-weight: 400;
-    }
-
-    .description{
-      max-width: 500px;
-      margin: 1rem auto;
-      line-height: 1.4;
-      opacity: .9;
-    }
-  </style>
+  <style>:root{--bg1:#0e0e0e;--bg2:#1a1a1a;--text:#eaeaea;--muted:#aaa;--accent:#6ee7ff}@media(prefers-color-scheme:light){:root{--bg1:#f0f0f0;--bg2:#dcdcdc;--text:#111;--muted:#555}}body{font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text);text-align:center;margin:0;padding:2rem;background:linear-gradient(45deg,var(--bg2) 25%,transparent 25%),linear-gradient(-45deg,var(--bg2) 25%,transparent 25%),linear-gradient(45deg,transparent 75%,var(--bg2) 75%),linear-gradient(-45deg,transparent 75%,var(--bg2) 75%),var(--bg1);background-size:40px 40px;background-position:0 0,0 20px,20px -20px,-20px 0;animation:scrollBG 12s linear infinite}@keyframes scrollBG{to{background-position:80px 80px,80px 100px,100px 60px,60px 80px}}h1{font-size:2.5rem;color:var(--accent);margin-bottom:.5rem}h2{display:inline-flex;align-items:center;gap:.5rem;font-size:1.5rem;margin:.5rem 0}h3{font-weight:400;margin:.25rem 0}h6{margin-top:2rem;color:var(--muted);font-weight:400}.dot{width:10px;height:10px;background:red;border-radius:50%;box-shadow:0 0 10px red;animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}.description{max-width:500px;margin:1rem auto;line-height:1.4;opacity:.9}</style>
 </head>
 <body>
   <h1>Minecraft Movie webpage!!!</h1>
-  <h2>Current movie: Bedwars</h2>
+
+  <h2>
+    Current movie: Bedwars
+    <span class="dot"></span>
+  </h2>
+
   <h3>Directors: Max and Theo</h3>
-  <h3 class="description">Bedwars is a movie about war. Idk what else to add -max</h3>
+  <h3 class="description">
+    Bedwars is a movie about war. Idk what else to add -max
+  </h3>
+
   <h6>(website by theo, hosted by github)</h6>
 </body>
 </html>
