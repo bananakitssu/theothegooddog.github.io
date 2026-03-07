@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+
+<style>
+
+body{
+font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+background:#0e0e0e;
+color:#aaa;
+text-align:center;
+margin:0;
+padding:3rem;
+}
+
+.login{
+margin-top:20vh;
+}
+
+input{
+padding:.6rem;
+font-size:1rem;
+border-radius:6px;
+border:none;
+outline:none;
+}
+
+button{
+padding:.6rem 1.2rem;
+font-size:1rem;
+border:none;
+border-radius:6px;
+background:#6ee7ff;
+cursor:pointer;
+font-weight:600;
+margin-left:6px;
+}
+
+button:hover{
+filter:brightness(1.1);
+}
+
+#error{
+color:#ff4d4d;
+margin-top:10px;
+}
+
+#dashboard{
+display:none;
+}
+
+.panel{
+background:#181818;
+padding:20px;
+border-radius:10px;
+max-width:500px;
+margin:20px auto;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="login" class="login">
+
+<h1>Dashboard Login</h1>
+
+<input id="pw" type="password" placeholder="Enter password">
+
+<button onclick="login()">Enter</button>
+
+<div id="error"></div>
+
+</div>
+
+
+<div id="dashboard">
+
+<h1>Movie Dashboard</h1>
+
+<div class="panel">
+<h2>Controls</h2>
+
+<p>You are logged in.</p>
+
+<button onclick="alert('Example button')">Example Action</button>
+
+</div>
+
+</div>
+
+
+<script>
+
+function login(){
+
+const pass="112563"
+
+let input=document.getElementById("pw").value
+
+if(input===pass){
+
+document.getElementById("login").style.display="none"
+document.getElementById("dashboard").style.display="block"
+
+}else{
+
+document.getElementById("error").textContent="Wrong password"
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
