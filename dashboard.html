@@ -20,6 +20,7 @@ margin-top:20vh;
 
 input{
 padding:.6rem;
+margin:5px;
 font-size:1rem;
 border-radius:6px;
 border:none;
@@ -72,7 +73,11 @@ margin-top:10px;
 
 <h1>Dashboard Login</h1>
 
+<input id="username" placeholder="Username">
+<br>
 <input id="pw" type="password" placeholder="Password">
+
+<br>
 <button onclick="login()">Enter</button>
 
 <div id="error"></div>
@@ -83,20 +88,16 @@ margin-top:10px;
 
 <div id="dashboard">
 
-<h1>Movie Dashboard</h1>
+<h1 id="welcome"></h1>
 
 <div class="panel">
-
 <h2>Next Meeting In</h2>
 <div id="countdown">Loading...</div>
-
 </div>
 
 <div class="panel">
-
 <h2>Upcoming Meetings</h2>
 <ul id="meetingList"></ul>
-
 </div>
 
 </div>
@@ -107,12 +108,17 @@ const PASSWORD="112563"
 
 function login(){
 
-let input=document.getElementById("pw").value
+let username=document.getElementById("username").value.trim()
+let password=document.getElementById("pw").value
 
-if(input===PASSWORD){
+if(password===PASSWORD){
 
 document.getElementById("login").style.display="none"
 document.getElementById("dashboard").style.display="block"
+
+if(username==="") username="Guest"
+
+document.getElementById("welcome").textContent=`Hello, ${username}!`
 
 loadMeetings()
 
@@ -129,7 +135,7 @@ let nextMeeting=null
 
 async function loadMeetings(){
 
-let res=await fetch("/times.json")
+let res=await fetch("times.json")
 let data=await res.json()
 
 meetings=data.meetings.map(t=>new Date(t))
