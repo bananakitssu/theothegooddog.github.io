@@ -104,6 +104,7 @@ margin-top:10px;
 
 <script>
 
+Notification.requestPermission()
 const PASSWORD="112563"
 
 function login(){
@@ -118,7 +119,7 @@ document.getElementById("dashboard").style.display="block"
 
 if(username==="") username="Guest"
 
-document.getElementById("welcome").textContent=`Hello, ${username}!`
+document.getElementById("welcome").textContent=`Welcome, ${username}!`
 
 loadMeetings()
 
@@ -163,6 +164,8 @@ list.appendChild(li)
 
 }
 
+let notified=false
+
 function updateCountdown(){
 
 if(!nextMeeting)return
@@ -171,7 +174,19 @@ let now=new Date()
 let diff=nextMeeting-now
 
 if(diff<=0){
-document.getElementById("countdown").textContent="Meeting happening now!"
+
+document.getElementById("countdown").textContent="Meeting happening now! You're all caught up."
+
+if(!notified && Notification.permission==="granted"){
+
+new Notification("Meeting Time!",{
+body:"The movie meeting is starting now.",
+icon:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhxOCMMODh9L9iJ2NfEORL0bR5lEuxCjujlQ&s"
+})
+
+notified=true
+}
+
 return
 }
 
@@ -182,7 +197,6 @@ let d=Math.floor(diff/1000/60/60/24)
 
 document.getElementById("countdown").textContent=
 `${d}d ${h}h ${m}m ${s}s`
-
 }
 
 </script>
